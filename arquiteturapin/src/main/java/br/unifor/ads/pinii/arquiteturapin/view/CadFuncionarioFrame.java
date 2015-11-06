@@ -102,7 +102,7 @@ public class CadFuncionarioFrame extends AbstractFrame {
 					Funcionarios funcionario = new Funcionarios();
 					funcionario.setNome(txtFieldNome.getText());
 					funcionario.setCpf(txtFieldCpf.getText());
-					funcionario.setSalario(Double.parseDouble(txtFieldSalario.getText().replace(",", ".")));
+//					funcionario.setSalario(Double.parseDouble(txtFieldSalario.getText().replace(",", ".")));
 					
 					try {
 						funcionarioBO.salvar(funcionario);

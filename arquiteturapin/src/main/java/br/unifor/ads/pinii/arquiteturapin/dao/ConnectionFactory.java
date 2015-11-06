@@ -1,7 +1,9 @@
+package br.unifor.ads.pinii.arquiteturapin.dao;
+
 /**
  * 
  */
-package br.unifor.ads.pinii.arquiteturapin.dao;
+
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -24,8 +26,8 @@ public class ConnectionFactory {
 
 	private ConnectionFactory() {
 		HikariConfig config = new HikariConfig();
-		//Não padrao
-		config.setJdbcUrl("jdbc:postgresql://localhost:5432/arquiteturapin");
+		//NÃ£o padrao
+		config.setJdbcUrl("jdbc:mysql://localhost/barhelper");
 		// OR padrao
 //		config.setDataSourceClassName("org.postgresql.ds.PGSimpleDataSource");
 //		config.addDataSourceProperty("databaseName", "arquitetura");
