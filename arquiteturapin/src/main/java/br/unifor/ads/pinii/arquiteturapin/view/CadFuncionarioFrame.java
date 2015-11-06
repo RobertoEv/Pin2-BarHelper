@@ -23,6 +23,10 @@ public class CadFuncionarioFrame extends AbstractFrame {
 	private JTextField txtFieldNome;
 	private JTextField txtFieldCpf;
 	private JTextField txtFieldSalario;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
 
 	/**
 	 * Launch the application.
@@ -47,7 +51,7 @@ public class CadFuncionarioFrame extends AbstractFrame {
 		
 		this.funcionarioBO = new FuncionarioBO();
 		
-		setTitle("Arquitetura PIN2 - Cadastro de Funcionário (Prof. Adriano Patrick Cunha)");
+		setTitle("PIN 2 BarHelper - Cadastro de Funcionário");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginFrame.class.getResource("imagens/logo_unifor.png")));
 		setBounds(100, 100, 577, 349);
 		contentPane = new JPanel();
@@ -59,29 +63,29 @@ public class CadFuncionarioFrame extends AbstractFrame {
 		contentPane.add(messages);
 
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(173, 79, 46, 14);
+		lblNome.setBounds(173, 14, 46, 14);
 		contentPane.add(lblNome);
 
 		JLabel lblLogin = new JLabel("CPF:");
-		lblLogin.setBounds(173, 104, 46, 14);
+		lblLogin.setBounds(173, 39, 46, 14);
 		contentPane.add(lblLogin);
 
-		JLabel lblSenha = new JLabel("Salário:");
-		lblSenha.setBounds(173, 129, 46, 14);
+		JLabel lblSenha = new JLabel("Nascimento:");
+		lblSenha.setBounds(160, 64, 59, 14);
 		contentPane.add(lblSenha);
 
 		txtFieldNome = new JTextField();
-		txtFieldNome.setBounds(225, 76, 168, 20);
+		txtFieldNome.setBounds(225, 11, 168, 20);
 		contentPane.add(txtFieldNome);
 		txtFieldNome.setColumns(10);
 
 		txtFieldCpf = new JTextField();
-		txtFieldCpf.setBounds(225, 101, 168, 20);
+		txtFieldCpf.setBounds(225, 36, 168, 20);
 		contentPane.add(txtFieldCpf);
 		txtFieldCpf.setColumns(10);
 
 		txtFieldSalario = new JTextField();
-		txtFieldSalario.setBounds(225, 126, 168, 20);
+		txtFieldSalario.setBounds(225, 61, 168, 20);
 		contentPane.add(txtFieldSalario);
 		txtFieldSalario.setColumns(10);
 
@@ -91,7 +95,7 @@ public class CadFuncionarioFrame extends AbstractFrame {
 				dispose();
 			}
 		});
-		btnCancelar.setBounds(190, 168, 89, 23);
+		btnCancelar.setBounds(190, 232, 89, 23);
 		contentPane.add(btnCancelar);
 
 		JButton btnSalvar = new JButton("Salvar");
@@ -122,10 +126,45 @@ public class CadFuncionarioFrame extends AbstractFrame {
 				return true;
 			}
 		});
-		btnSalvar.setBounds(289, 168, 89, 23);
+		btnSalvar.setBounds(289, 232, 89, 23);
 		contentPane.add(btnSalvar);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(225, 89, 168, 20);
+		contentPane.add(textField);
+		
+		JLabel lblEstado = new JLabel("Estado:");
+		lblEstado.setBounds(173, 92, 46, 14);
+		contentPane.add(lblEstado);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(225, 114, 168, 20);
+		contentPane.add(textField_1);
+		
+		JLabel lblCidade = new JLabel("Cidade:");
+		lblCidade.setBounds(173, 117, 46, 14);
+		contentPane.add(lblCidade);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(225, 142, 168, 20);
+		contentPane.add(textField_2);
+		
+		JLabel lblNmero = new JLabel("Número:");
+		lblNmero.setBounds(173, 145, 46, 14);
+		contentPane.add(lblNmero);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(225, 167, 168, 20);
+		contentPane.add(textField_3);
+		
+		JLabel lblTelefone = new JLabel("Telefone:");
+		lblTelefone.setBounds(173, 170, 46, 14);
+		contentPane.add(lblTelefone);
 
-		setContentPane(contentPane);
+		//setContentPane(contentPane);
 	}
-
 }

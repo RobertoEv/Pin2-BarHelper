@@ -62,7 +62,7 @@ public class CadUsuarioFrame extends AbstractFrame {
 
 		usuarioBO = new UsuarioBO();
 
-		setTitle("Arquitetura PIN2 - Cadastro de Usuário (Prof. Adriano Patrick Cunha)");
+		setTitle("PIN 2 - BarHelper - Cadastro de Usuário");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginFrame.class.getResource("imagens/logo_unifor.png")));
 		setBounds(100, 100, 577, 349);
 		contentPane = new JPanel();

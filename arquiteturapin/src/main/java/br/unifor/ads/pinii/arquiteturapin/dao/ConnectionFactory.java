@@ -32,8 +32,8 @@ public class ConnectionFactory {
 //		config.setDataSourceClassName("org.postgresql.ds.PGSimpleDataSource");
 //		config.addDataSourceProperty("databaseName", "arquitetura");
 		
-		config.setUsername("postgres");
-		config.setPassword("unifor");
+		config.setUsername("root");
+		config.setPassword("c9p5au8naa");
 		config.setMinimumIdle(2);
 		config.setMaximumPoolSize(20); //default 10
 		config.setConnectionTestQuery("SELECT 1 ");

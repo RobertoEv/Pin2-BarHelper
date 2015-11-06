@@ -63,7 +63,7 @@ public class LoginFrame extends AbstractFrame {
 		
 		this.usuarioBO = new UsuarioBO();
 		
-		setTitle("Arquitetura PIN2 - Login (Prof. Adriano Patrick Cunha)");
+		setTitle("PIN2 - BarHelper - Login");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginFrame.class.getResource("imagens/logo_unifor.png")));
 		setBounds(100, 100, 577, 349);
 		contentPane = new JPanel();

@@ -52,7 +52,7 @@ public class HomeFrame extends AbstractFrame {
 	 * Create the frame.
 	 */
 	public HomeFrame() {
-		setTitle("Arquitetura PIN2 - Home (Prof. Adriano Patrick Cunha)");
+		setTitle("PIN2 - BarHelper - Index");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginFrame.class.getResource("imagens/logo_unifor.png")));
 		setBounds(100, 100, 577, 349);
 		contentPane = new JPanel();
