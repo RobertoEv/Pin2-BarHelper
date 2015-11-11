@@ -27,6 +27,7 @@ public class CadFuncionarioFrame extends AbstractFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	private JTextField textField_4;
 
 	/**
 	 * Launch the application.
@@ -152,7 +153,7 @@ public class CadFuncionarioFrame extends AbstractFrame {
 		textField_2.setBounds(225, 142, 168, 20);
 		contentPane.add(textField_2);
 		
-		JLabel lblNmero = new JLabel("Número:");
+		JLabel lblNmero = new JLabel("Rua:");
 		lblNmero.setBounds(173, 145, 46, 14);
 		contentPane.add(lblNmero);
 		
@@ -161,9 +162,18 @@ public class CadFuncionarioFrame extends AbstractFrame {
 		textField_3.setBounds(225, 167, 168, 20);
 		contentPane.add(textField_3);
 		
-		JLabel lblTelefone = new JLabel("Telefone:");
+		JLabel lblTelefone = new JLabel("Numero:");
 		lblTelefone.setBounds(173, 170, 46, 14);
 		contentPane.add(lblTelefone);
+		
+		JLabel label = new JLabel("Telefone:");
+		label.setBounds(173, 198, 46, 14);
+		contentPane.add(label);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(225, 195, 168, 20);
+		contentPane.add(textField_4);
 
 		//setContentPane(contentPane);
 	}
