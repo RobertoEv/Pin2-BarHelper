@@ -9,10 +9,6 @@ import java.sql.SQLException;
 import br.unifor.ads.pinii.arquiteturapin.entity.Usuarios;
 import br.unifor.ads.pinii.arquiteturapin.exception.DAOException;
 
-/**
- * @author adrianopatrick@gmail.com
- * @since 29 de out de 2015
- */
 public class UsuarioDAO {
 
 	private EntityManager em;

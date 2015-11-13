@@ -79,7 +79,7 @@ public class HomeFrame extends AbstractFrame {
 		});
 		mnFunc.add(mntmFunc);
 		
-		JMenu mnFunc_1 = new JMenu("Func2");
+		JMenu mnFunc_1 = new JMenu("Editar");
 		menuBar.add(mnFunc_1);
 		
 		JMenuItem mntmItem = new JMenuItem("Item2");

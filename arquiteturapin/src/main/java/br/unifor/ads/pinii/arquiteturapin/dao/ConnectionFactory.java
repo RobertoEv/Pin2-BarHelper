@@ -33,7 +33,7 @@ public class ConnectionFactory {
 //		config.addDataSourceProperty("databaseName", "arquitetura");
 		
 		config.setUsername("root");
-		config.setPassword("c9p5au8naa");
+		config.setPassword("root");
 		config.setMinimumIdle(2);
 		config.setMaximumPoolSize(20); //default 10
 		config.setConnectionTestQuery("SELECT 1 ");

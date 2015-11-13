@@ -1,14 +1,7 @@
-/**
- * 
- */
 package br.unifor.ads.pinii.arquiteturapin.entity;
 
 import java.io.Serializable;
 
-/**
- * @author adrianopatrick@gmail.com
- * @since 28 de out de 2015
- */
 public class Usuarios implements Serializable{
 
 	private static final long serialVersionUID = 8763978023955561533L;

@@ -22,12 +22,12 @@ public class CadFuncionarioFrame extends AbstractFrame {
 	private FuncionarioBO funcionarioBO;
 	private JTextField txtFieldNome;
 	private JTextField txtFieldCpf;
-	private JTextField txtFieldSalario;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField txtFieldNascimento;
+	private JTextField txtFieldCidade;
+	private JTextField txtFieldRua;
+	private JTextField txtFieldNumeroCasa;
+	private JTextField txtFieldTelefone;
+	private JTextField txtFieldEstado;
 
 	/**
 	 * Launch the application.
@@ -64,15 +64,15 @@ public class CadFuncionarioFrame extends AbstractFrame {
 		contentPane.add(messages);
 
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(173, 14, 46, 14);
+		lblNome.setBounds(142, 12, 46, 14);
 		contentPane.add(lblNome);
 
 		JLabel lblLogin = new JLabel("CPF:");
-		lblLogin.setBounds(173, 39, 46, 14);
+		lblLogin.setBounds(142, 39, 46, 14);
 		contentPane.add(lblLogin);
 
 		JLabel lblSenha = new JLabel("Nascimento:");
-		lblSenha.setBounds(160, 64, 59, 14);
+		lblSenha.setBounds(140, 65, 71, 16);
 		contentPane.add(lblSenha);
 
 		txtFieldNome = new JTextField();
@@ -85,10 +85,57 @@ public class CadFuncionarioFrame extends AbstractFrame {
 		contentPane.add(txtFieldCpf);
 		txtFieldCpf.setColumns(10);
 
-		txtFieldSalario = new JTextField();
-		txtFieldSalario.setBounds(225, 61, 168, 20);
-		contentPane.add(txtFieldSalario);
-		txtFieldSalario.setColumns(10);
+		txtFieldNascimento = new JTextField();
+		txtFieldNascimento.setBounds(225, 61, 168, 20);
+		contentPane.add(txtFieldNascimento);
+		txtFieldNascimento.setColumns(10);
+		
+
+		txtFieldEstado = new JTextField();
+		txtFieldEstado.setColumns(10);
+		txtFieldEstado.setBounds(225, 89, 168, 20);
+		contentPane.add(txtFieldEstado);
+		
+		JLabel lblEstado = new JLabel("Estado:");
+		lblEstado.setBounds(142, 92, 46, 14);
+		contentPane.add(lblEstado);
+		
+		txtFieldCidade = new JTextField();
+		txtFieldCidade.setColumns(10);
+		txtFieldCidade.setBounds(225, 114, 168, 20);
+		contentPane.add(txtFieldCidade);
+		
+		JLabel lblCidade = new JLabel("Cidade:");
+		lblCidade.setBounds(142, 117, 46, 14);
+		contentPane.add(lblCidade);
+		
+		txtFieldRua = new JTextField();
+		txtFieldRua.setColumns(10);
+		txtFieldRua.setBounds(225, 142, 168, 20);
+		contentPane.add(txtFieldRua);
+		
+		JLabel lblNmero = new JLabel("Rua:");
+		lblNmero.setBounds(142, 145, 46, 14);
+		contentPane.add(lblNmero);
+		
+		txtFieldNumeroCasa = new JTextField();
+		txtFieldNumeroCasa.setColumns(10);
+		txtFieldNumeroCasa.setBounds(225, 167, 168, 20);
+		contentPane.add(txtFieldNumeroCasa);
+		
+		JLabel lblTelefone = new JLabel("Numero:");
+		lblTelefone.setBounds(142, 170, 50, 16);
+		contentPane.add(lblTelefone);
+		
+		JLabel label = new JLabel("Telefone:");
+		label.setBounds(142, 197, 55, 16);
+		contentPane.add(label);
+		
+		txtFieldTelefone = new JTextField();
+		txtFieldTelefone.setColumns(10);
+		txtFieldTelefone.setBounds(225, 195, 168, 20);
+		contentPane.add(txtFieldTelefone);
+
 
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
@@ -103,12 +150,15 @@ public class CadFuncionarioFrame extends AbstractFrame {
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (validaCamposObrigatorios()) {
-					
 					Funcionarios funcionario = new Funcionarios();
 					funcionario.setNome(txtFieldNome.getText());
 					funcionario.setCpf(txtFieldCpf.getText());
-//					funcionario.setSalario(Double.parseDouble(txtFieldSalario.getText().replace(",", ".")));
-					
+					funcionario.setNascimento(txtFieldNascimento.getText());					
+					funcionario.setEstado(txtFieldEstado.getText());
+					funcionario.setCidade(txtFieldCidade.getText());
+					funcionario.setRua(txtFieldRua.getText());
+					funcionario.setNumeroCasa(txtFieldNumeroCasa.getText());
+					funcionario.setTelefone(txtFieldTelefone.getText());
 					try {
 						funcionarioBO.salvar(funcionario);
 						home().msgInfo("Funcionário cadastrado com sucesso!");
@@ -120,7 +170,12 @@ public class CadFuncionarioFrame extends AbstractFrame {
 
 			private boolean validaCamposObrigatorios() {
 				if (txtFieldNome.getText().trim().isEmpty() || txtFieldCpf.getText().trim().isEmpty()
-						|| txtFieldSalario.getText().trim().isEmpty()) {
+						|| txtFieldNascimento.getText().trim().isEmpty()
+						|| txtFieldEstado.getText().trim().isEmpty()
+						|| txtFieldCidade.getText().trim().isEmpty()
+						|| txtFieldRua.getText().trim().isEmpty()
+						|| txtFieldNumeroCasa.getText().trim().isEmpty()
+						|| txtFieldTelefone.getText().trim().isEmpty()) {
 					msgError("Campos Obrigatórios");
 					return false;
 				}
@@ -129,52 +184,5 @@ public class CadFuncionarioFrame extends AbstractFrame {
 		});
 		btnSalvar.setBounds(289, 232, 89, 23);
 		contentPane.add(btnSalvar);
-		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(225, 89, 168, 20);
-		contentPane.add(textField);
-		
-		JLabel lblEstado = new JLabel("Estado:");
-		lblEstado.setBounds(173, 92, 46, 14);
-		contentPane.add(lblEstado);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(225, 114, 168, 20);
-		contentPane.add(textField_1);
-		
-		JLabel lblCidade = new JLabel("Cidade:");
-		lblCidade.setBounds(173, 117, 46, 14);
-		contentPane.add(lblCidade);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(225, 142, 168, 20);
-		contentPane.add(textField_2);
-		
-		JLabel lblNmero = new JLabel("Rua:");
-		lblNmero.setBounds(173, 145, 46, 14);
-		contentPane.add(lblNmero);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(225, 167, 168, 20);
-		contentPane.add(textField_3);
-		
-		JLabel lblTelefone = new JLabel("Numero:");
-		lblTelefone.setBounds(173, 170, 46, 14);
-		contentPane.add(lblTelefone);
-		
-		JLabel label = new JLabel("Telefone:");
-		label.setBounds(173, 198, 46, 14);
-		contentPane.add(label);
-		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(225, 195, 168, 20);
-		contentPane.add(textField_4);
-
-		//setContentPane(contentPane);
 	}
 }
