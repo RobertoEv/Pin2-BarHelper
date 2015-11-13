@@ -1,8 +1,6 @@
 package br.unifor.ads.pinii.arquiteturapin.entity;
 
-
-
-public class Funcionarios {
+public class Funcionarios{
 	
 	private Integer id;
 	private String nome;
@@ -11,9 +9,27 @@ public class Funcionarios {
 	private String estado;
 	private String cidade;
 	private String rua;
-	private Integer numeroCasa;
+	private String numeroCasa;
 	private String telefone;
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 	public String getNascimento() {
 		return nascimento;
 	}
@@ -38,10 +54,10 @@ public class Funcionarios {
 	public void setRua(String rua) {
 		this.rua = rua;
 	}
-	public Integer getNumeroCasa() {
+	public String getNumeroCasa() {
 		return numeroCasa;
 	}
-	public void setNumeroCasa(Integer numeroCasa) {
+	public void setNumeroCasa(String numeroCasa) {
 		this.numeroCasa = numeroCasa;
 	}
 	public String getTelefone() {
@@ -50,22 +66,5 @@ public class Funcionarios {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public String getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+	
 }

@@ -1,7 +1,5 @@
 package br.unifor.ads.pinii.arquiteturapin.dao;
 
-
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -26,17 +24,17 @@ public class FuncionarioDAO {
 				funcionario.setEstado(rs.getString("estado"));
 				funcionario.setCidade(rs.getString("cidade"));
 				funcionario.setRua(rs.getString("rua"));
-				funcionario.setNumeroCasa(rs.getInt("numeroCasa"));
+				funcionario.setNumeroCasa(rs.getString("numeroCasa"));
 				funcionario.setTelefone(rs.getString("telefone"));
-				return null;
+				return funcionario;
 			}
 		};
 	}
 	
-	public void salvar(Funcionarios funcionario) throws DAOException{
-		em.execute("insert into funcionarios (nome, cpf, nascimento, estado, cidade, rua, numeroCasa, telefone) values (?, ?, ?, ?, ?, ?, ?, ?)",
-				funcionario.getNome(), funcionario.getCpf(), funcionario.getNascimento(), funcionario.getEstado(), funcionario.getCidade(),
-				funcionario.getRua(), funcionario.getNumeroCasa(), funcionario.getTelefone());
+	public void salvar(Funcionarios funcionario) throws DAOException {
+		em.execute("insert into funcionarios (nome, cpf, nascimento, estado, cidade, rua, numeroCasa, telefone) values (?, ?, ?, ?, ?, ?, ?, ?)", 
+				funcionario.getNome(), funcionario.getCpf(), funcionario.getNascimento(), funcionario.getEstado(), funcionario.getCidade(), funcionario.getRua(), 
+				funcionario.getNumeroCasa(), funcionario.getTelefone());
 	}
 
 }
