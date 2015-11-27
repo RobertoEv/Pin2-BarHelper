@@ -69,9 +69,27 @@ public class CadSetorFrame extends AbstractFrame {
 
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Setores setor = new Setores();
-				setor.setNome(textFieldNome.getText());}});
+		public void actionPerformed(ActionEvent e) {
+				if (validaCamposObrigatorios()) {
+					Setores setor = new Setores();
+					setor.setNome(textFieldNome.getText());
+					try {
+						setorBO.salvar(setor);
+						home().msgInfo("Funcionário cadastrado com sucesso!");
+					} catch (DAOException e1) {
+						msgError(e1.getMessage());
+					}
+				}
+			}
+
+			private boolean validaCamposObrigatorios() {
+				if (textFieldNome.getText().trim().isEmpty()) {
+					msgError("Campos Obrigatórios");
+					return false;
+				}
+				return true;
+			}
+			});
 		
 		btnSalvar.setBounds(289, 232, 89, 23);
 		contentPane.add(btnSalvar);
