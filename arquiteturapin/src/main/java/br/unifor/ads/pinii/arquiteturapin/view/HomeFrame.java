@@ -64,44 +64,33 @@ public class HomeFrame extends AbstractFrame {
 		contentPane.add(messages);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 534, 28);
+		menuBar.setBounds(0, 0, 561, 28);
 		contentPane.add(menuBar);
 		
-		JMenu mnFunc = new JMenu("Cadastros");
+		JMenu mnFunc = new JMenu("Funcionario");
 		menuBar.add(mnFunc);
 		
-		JMenuItem mntmFunc = new JMenuItem("Funcionário");
+		JMenuItem mntmFunc = new JMenuItem("Adicionar");
 		mntmFunc.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				cadFuncionario();
 			}
+		
 		});
 		mnFunc.add(mntmFunc);
 		
-		JMenu mnFunc_1 = new JMenu("Editar");
-		menuBar.add(mnFunc_1);
+		JMenu mnSetor = new JMenu("Setor");
+		menuBar.add(mnSetor);
 		
-		JMenuItem mntmItem = new JMenuItem("Item2");
-		mnFunc_1.add(mntmItem);
-		
-		JMenu mnSair = new JMenu("Config.");
-		menuBar.add(mnSair);
-		
-		JMenuItem mntmConfiguraes = new JMenuItem("Configurações");
-		mnSair.add(mntmConfiguraes);
-		
-		JSeparator separator = new JSeparator();
-		mnSair.add(separator);
-		
-		JMenuItem mntmSair = new JMenuItem("Sair");
-		mntmSair.addActionListener(new ActionListener() {
+		JMenuItem mntmSetor = new JMenuItem("Adicionar");
+		mntmSetor.addActionListener(new ActionListener(){
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				SegurancaTO.setUsuario(null);
-				login();
+				cadSetor();				
 			}
 		});
-		mnSair.add(mntmSair);
+		mnSetor.add(mntmSetor);
 		
 		JButton btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -110,9 +99,9 @@ public class HomeFrame extends AbstractFrame {
 				login();
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(HomeFrame.class.getResource("/br/unifor/ads/pinii/arquiteturapin/view/imagens/exit1.png")));
-		btnNewButton.setBounds(533, 0, 28, 28);
-		contentPane.add(btnNewButton);
+//		btnNewButton.setIcon(new ImageIcon(HomeFrame.class.getResource("/br/unifor/ads/pinii/arquiteturapin/view/imagens/exit1.png")));
+//		btnNewButton.setBounds(533, 0, 28, 28);
+//		contentPane.add(btnNewButton);
 		
 	}
 }

@@ -123,7 +123,7 @@ public class LoginFrame extends AbstractFrame {
 				cadUsuario();
 			}
 		});
-		btnCadastrar.setBounds(438, 169, 101, 23);
+		btnCadastrar.setBounds(438, 169, 113, 23);
 		contentPane.add(btnCadastrar);
 	}
 	
