@@ -36,5 +36,9 @@ public class FuncionarioDAO {
 				funcionario.getNome(), funcionario.getCpf(), funcionario.getNascimento(), funcionario.getEstado(), funcionario.getCidade(), funcionario.getRua(), 
 				funcionario.getNumeroCasa(), funcionario.getTelefone());
 	}
+	
+	public void editar(Funcionarios funcionario) throws DAOException{
+		//em.execute(,);
+	}
 
 }

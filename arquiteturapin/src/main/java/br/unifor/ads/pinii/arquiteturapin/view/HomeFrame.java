@@ -80,6 +80,12 @@ public class HomeFrame extends AbstractFrame {
 		});
 		mnFunc.add(mntmFunc);
 		
+		JMenuItem mntmEditar = new JMenuItem("Editar");
+		mnFunc.add(mntmEditar);
+		
+		JMenuItem mntmRemover = new JMenuItem("Remover");
+		mnFunc.add(mntmRemover);
+		
 		JMenu mnSetor = new JMenu("Setor");
 		menuBar.add(mnSetor);
 		
@@ -91,6 +97,12 @@ public class HomeFrame extends AbstractFrame {
 			}
 		});
 		mnSetor.add(mntmSetor);
+		
+		JMenuItem mntmEditar_1 = new JMenuItem("Editar");
+		mnSetor.add(mntmEditar_1);
+		
+		JMenuItem mntmRemover_1 = new JMenuItem("Remover");
+		mnSetor.add(mntmRemover_1);
 		
 		JButton btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
