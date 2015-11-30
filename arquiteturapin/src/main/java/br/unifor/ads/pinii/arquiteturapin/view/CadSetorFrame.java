@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import br.unifor.ads.pinii.arquiteturapin.bo.SetorBO;
-import br.unifor.ads.pinii.arquiteturapin.entity.Funcionarios;
+import br.unifor.ads.pinii.arquiteturapin.entity.Mesas;
 import br.unifor.ads.pinii.arquiteturapin.entity.Setores;
 import br.unifor.ads.pinii.arquiteturapin.exception.DAOException;
 import javax.swing.JTable;
@@ -22,6 +22,7 @@ public class CadSetorFrame extends AbstractFrame {
 	private JPanel contentPane;
 	private SetorBO setorBO;
 	private JTextField textFieldNome;
+	private JTextField textFieldMesa;
 
 	/**
 	 * Launch the application.
@@ -72,10 +73,13 @@ public class CadSetorFrame extends AbstractFrame {
 		public void actionPerformed(ActionEvent e) {
 				if (validaCamposObrigatorios()) {
 					Setores setor = new Setores();
+					Mesas mesa = new Mesas();
 					setor.setNome(textFieldNome.getText());
+					setor.setNome(textFieldNome.getText());
+					
 					try {
 						setorBO.salvar(setor);
-						home().msgInfo("Funcionário cadastrado com sucesso!");
+						home().msgInfo("Setor cadastrado com sucesso!");
 					} catch (DAOException e1) {
 						msgError(e1.getMessage());
 					}
@@ -102,6 +106,15 @@ public class CadSetorFrame extends AbstractFrame {
 		JLabel lblNomeSetor = new JLabel("Nome Setor:");
 		lblNomeSetor.setBounds(150, 123, 76, 14);
 		contentPane.add(lblNomeSetor);
+		
+		JLabel lblQtdDeMesas = new JLabel("Qtd de Mesas:");
+		lblQtdDeMesas.setBounds(139, 148, 70, 14);
+		contentPane.add(lblQtdDeMesas);
+		
+		textFieldMesa = new JTextField();
+		textFieldMesa.setBounds(218, 145, 175, 20);
+		contentPane.add(textFieldMesa);
+		textFieldMesa.setColumns(10);
 		
 		
 		

@@ -7,7 +7,7 @@ import br.unifor.ads.pinii.arquiteturapin.dao.EntityManager;
 import br.unifor.ads.pinii.arquiteturapin.entity.Mesas;
 import br.unifor.ads.pinii.arquiteturapin.exception.DAOException;
 
-public class MesaDAO {
+public class MesaDAO extends SetorDAO{
 	
 	private EntityManager em;
 	
@@ -18,13 +18,14 @@ public class MesaDAO {
 			public Object trataResultSet(ResultSet rs) throws SQLException {
 				Mesas mesa = new Mesas();
 				mesa.setId(rs.getInt("id"));
+				mesa.setNome(rs.getString("nome"));
 				return mesa;
 			}
 		};
 	}
 	
 	public void salvar(Mesas mesa) throws DAOException {
-		em.execute("insert into mesas () values ()");
+		//em.execute("insert into mesas (nome) values (concat('Setor: ',(?),' Mesa: ',(?)))", setor.getId());
 	}
 
 }

@@ -4,10 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.unifor.ads.pinii.arquiteturapin.dao.EntityManager;
+import br.unifor.ads.pinii.arquiteturapin.entity.Mesas;
 import br.unifor.ads.pinii.arquiteturapin.entity.Setores;
 import br.unifor.ads.pinii.arquiteturapin.exception.DAOException;
 
-public class SetorDAO {
+public class SetorDAO{
 	
 	private EntityManager em;
 	
@@ -25,7 +26,8 @@ public class SetorDAO {
 	}
 	
 	public void salvar(Setores setor) throws DAOException {
-		em.execute("insert into setores (nome) values (?)", setor.getNome());
+		em.execute("insert into setores (nome) values (?);", setor.getNome());
+		
 	}
 
 }

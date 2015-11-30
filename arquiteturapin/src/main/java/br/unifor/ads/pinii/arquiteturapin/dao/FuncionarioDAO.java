@@ -32,13 +32,29 @@ public class FuncionarioDAO {
 	}
 	
 	public void salvar(Funcionarios funcionario) throws DAOException {
-		em.execute("insert into funcionarios (nome, cpf, nascimento, estado, cidade, rua, numeroCasa, telefone) values (?, ?, ?, ?, ?, ?, ?, ?)", 
+		em.execute("insert into funcionarios (nome, cpf, nascimento, estado, cidade, rua, numeroCasa, telefone) "
+				+ "values (?, ?, ?, ?, ?, ?, ?, ?)", 
 				funcionario.getNome(), funcionario.getCpf(), funcionario.getNascimento(), funcionario.getEstado(), funcionario.getCidade(), funcionario.getRua(), 
 				funcionario.getNumeroCasa(), funcionario.getTelefone());
 	}
 	
+	public void exibir(Funcionarios funcionario) throws DAOException{
+		em.execute("select nome, cpf, nascimento, estado, cidade, rua, numeroCasa, telefone from funcionarios where id = (?)", 
+				funcionario.getNome(), funcionario.getCpf(), funcionario.getNascimento(), funcionario.getEstado(),
+				funcionario.getCidade(), funcionario.getRua(),funcionario.getNumeroCasa(),funcionario.getTelefone(), 
+				funcionario.getId());
+		
+	}
+	
 	public void editar(Funcionarios funcionario) throws DAOException{
-		//em.execute(,);
+		em.execute("update funcionarios set nome = (?), cpf = (?), nascimento = (?), estado = (?), cidade = (?),"
+				+ " rua = (?), numeroCasa = (?), telefone = (?) where id = (?)",funcionario.getNome(), 
+				funcionario.getCpf(), funcionario.getNascimento(), funcionario.getEstado(),	funcionario.getCidade(), 
+				funcionario.getRua(),funcionario.getNumeroCasa(), funcionario.getTelefone(), funcionario.getId());
+	}
+	
+	public void excluir(Funcionarios funcionario) throws DAOException{
+		em.execute("delete from fucionarios where id = (?)", funcionario.getId());
 	}
 
 }

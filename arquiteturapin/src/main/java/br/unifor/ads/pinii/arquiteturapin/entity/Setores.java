@@ -3,6 +3,7 @@ package br.unifor.ads.pinii.arquiteturapin.entity;
 public class Setores {
 	private Integer id;
 	private String nome;
+	
 	public Integer getId() {
 		return id;
 	}
