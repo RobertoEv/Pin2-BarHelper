@@ -38,12 +38,14 @@ public class FuncionarioDAO {
 				funcionario.getNumeroCasa(), funcionario.getTelefone());
 	}
 	
-	public void exibir(Funcionarios funcionario) throws DAOException{
-		em.execute("select nome, cpf, nascimento, estado, cidade, rua, numeroCasa, telefone from funcionarios where id = (?)", 
+	public Funcionarios exibir(Funcionarios funcionario) throws DAOException{
+		/*em.execute("select nome, cpf, nascimento, estado, cidade, rua, numeroCasa, telefone from funcionarios where id = (?)", 
 				funcionario.getNome(), funcionario.getCpf(), funcionario.getNascimento(), funcionario.getEstado(),
 				funcionario.getCidade(), funcionario.getRua(),funcionario.getNumeroCasa(),funcionario.getTelefone(), 
-				funcionario.getId());
-		
+				'1');*/
+		funcionario.setNome((String) em.getSingleResult("select nome from funcionarios where id = (?)", 1));
+		funcionario.setCpf((String) em.getSingleResult("select cpf from funcionarios where id = (?)", 1));
+		return funcionario;
 	}
 	
 	public void editar(Funcionarios funcionario) throws DAOException{

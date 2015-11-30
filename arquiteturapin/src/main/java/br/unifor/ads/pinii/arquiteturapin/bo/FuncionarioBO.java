@@ -19,8 +19,9 @@ public class FuncionarioBO {
 		this.funcionarioDAO.salvar(funcionario);
 	}
 	
-	public void editar(Funcionarios funcionario) throws DAOException{
+	public Funcionarios editar(Funcionarios funcionario) throws DAOException{
 		this.funcionarioDAO.editar(funcionario);
+		return funcionario;
 	}
 	
 	public void excluir(Funcionarios funcionario) throws DAOException{

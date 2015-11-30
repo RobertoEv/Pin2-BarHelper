@@ -81,6 +81,11 @@ public class HomeFrame extends AbstractFrame {
 		mnFunc.add(mntmFunc);
 		
 		JMenuItem mntmEditar = new JMenuItem("Editar");
+		mntmEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ediFuncionario();
+			}
+		});
 		mnFunc.add(mntmEditar);
 		
 		JMenuItem mntmRemover = new JMenuItem("Remover");
