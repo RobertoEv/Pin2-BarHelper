@@ -11,6 +11,7 @@ public class Usuarios implements Serializable{
 	private String login;
 	private String senha;
 	
+
 	public Integer getId() {
 		return id;
 	}

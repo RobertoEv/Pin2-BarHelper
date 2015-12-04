@@ -24,8 +24,8 @@ public class MesaDAO extends SetorDAO{
 		};
 	}
 	
-	public void salvar(Mesas mesa) throws DAOException {
-		//em.execute("insert into mesas (nome) values (concat('Setor: ',(?),' Mesa: ',(?)))", setor.getId());
+	public void salvar(Mesas mesa, Integer i) throws DAOException {
+		em.execute("insert into mesas (nome) values (?);", i);
 	}
 
 }

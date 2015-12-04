@@ -155,5 +155,4 @@ public class AbstractFrame extends JFrame {
 		}
 		return frame;
 	}
-
 }

@@ -2,9 +2,14 @@ package br.unifor.ads.pinii.arquiteturapin.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mysql.jdbc.PreparedStatement;
 
 import br.unifor.ads.pinii.arquiteturapin.dao.EntityManager;
 import br.unifor.ads.pinii.arquiteturapin.entity.Funcionarios;
+import br.unifor.ads.pinii.arquiteturapin.entity.Usuarios;
 import br.unifor.ads.pinii.arquiteturapin.exception.DAOException;
 
 public class FuncionarioDAO {
@@ -38,25 +43,20 @@ public class FuncionarioDAO {
 				funcionario.getNumeroCasa(), funcionario.getTelefone());
 	}
 	
-	public Funcionarios exibir(Funcionarios funcionario) throws DAOException{
-		/*em.execute("select nome, cpf, nascimento, estado, cidade, rua, numeroCasa, telefone from funcionarios where id = (?)", 
-				funcionario.getNome(), funcionario.getCpf(), funcionario.getNascimento(), funcionario.getEstado(),
-				funcionario.getCidade(), funcionario.getRua(),funcionario.getNumeroCasa(),funcionario.getTelefone(), 
-				'1');*/
-		funcionario.setNome((String) em.getSingleResult("select nome from funcionarios where id = (?)", 1));
-		funcionario.setCpf((String) em.getSingleResult("select cpf from funcionarios where id = (?)", 1));
-		return funcionario;
+	public Funcionarios exibir(Funcionarios funcionario, Integer selecionado) throws DAOException{
+		Funcionarios exibirFuncionario = null;
+		exibirFuncionario = (Funcionarios) em.getSingleResult("select * from usuarios where id = ?", selecionado);
+		return exibirFuncionario;
 	}
 	
-	public void editar(Funcionarios funcionario) throws DAOException{
-		em.execute("update funcionarios set nome = (?), cpf = (?), nascimento = (?), estado = (?), cidade = (?),"
-				+ " rua = (?), numeroCasa = (?), telefone = (?) where id = (?)",funcionario.getNome(), 
+	public void editar(Funcionarios funcionario, Integer valorEditado) throws DAOException{
+		em.execute("update funcionarios set nome = ?, cpf = ?, nascimento = ?, estado = ?, cidade = ?,"
+				+ " rua = ?, numeroCasa = ?, telefone = ? where id = ?",funcionario.getNome(), 
 				funcionario.getCpf(), funcionario.getNascimento(), funcionario.getEstado(),	funcionario.getCidade(), 
-				funcionario.getRua(),funcionario.getNumeroCasa(), funcionario.getTelefone(), funcionario.getId());
+				funcionario.getRua(),funcionario.getNumeroCasa(), funcionario.getTelefone(), valorEditado);
 	}
 	
-	public void excluir(Funcionarios funcionario) throws DAOException{
-		em.execute("delete from fucionarios where id = (?)", funcionario.getId());
+	public void excluir(Integer valorDeletado) throws DAOException{
+		em.execute("delete from fucionarios where id = ?", valorDeletado);
 	}
-
 }

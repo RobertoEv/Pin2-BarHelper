@@ -17,8 +17,10 @@ public class MesaBO {
 		this.mesaDAO = new MesaDAO();
 	}
 	
-	public void salvar(Mesas mesa) throws DAOException{
-		this.mesaDAO.salvar(mesa);
+	public void salvar(Mesas mesa, Integer qtdMesas) throws DAOException{
+		for (Integer i = 1; i <= qtdMesas; i++){
+			this.mesaDAO.salvar(mesa, i);
+		}	
 	}
 
 }

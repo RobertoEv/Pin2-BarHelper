@@ -29,6 +29,7 @@ public class EdiFuncionarioFrame extends AbstractFrame {
 	private JTextField txtFieldNumeroCasa;
 	private JTextField txtFieldTelefone;
 	private JTextField txtFieldEstado;
+	private JTextField Objeto;
 
 	/**
 	 * Launch the application.
@@ -53,7 +54,7 @@ public class EdiFuncionarioFrame extends AbstractFrame {
 		
 		this.funcionarioBO = new FuncionarioBO();
 		
-		setTitle("PIN 2 BarHelper - Cadastro de Funcionário");
+		setTitle("PIN 2 BarHelper - Editar o Funcionário");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginFrame.class.getResource("imagens/logo_unifor.png")));
 		setBounds(100, 100, 577, 349);
 		contentPane = new JPanel();
@@ -137,20 +138,11 @@ public class EdiFuncionarioFrame extends AbstractFrame {
 		txtFieldTelefone.setBounds(225, 195, 168, 20);
 		contentPane.add(txtFieldTelefone);
 		
-		Funcionarios funcionario = new Funcionarios();
-		try {
-			funcionarioBO.editar(funcionario);
-			txtFieldNome.setText(funcionario.getNome());
-			txtFieldCpf.setText(funcionario.getCpf());
-			txtFieldNascimento.setText(funcionario.getNascimento());
-			txtFieldEstado.setText(funcionario.getEstado());
-			txtFieldCidade.setText(funcionario.getCidade());
-			txtFieldRua.setText(funcionario.getRua());
-			txtFieldNumeroCasa.setText(funcionario.getNumeroCasa());
-			txtFieldTelefone.setText(funcionario.getTelefone());
-		} catch (DAOException e2) {
-			e2.printStackTrace();
-		}
+		
+		Objeto = new JTextField();
+		Objeto.setBounds(237, 268, 116, 22);
+		contentPane.add(Objeto);
+		Objeto.setColumns(10);
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
@@ -164,7 +156,7 @@ public class EdiFuncionarioFrame extends AbstractFrame {
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (validaCamposObrigatorios()) {
-					//Funcionarios funcionario = new Funcionarios();
+					Funcionarios funcionario = new Funcionarios();
 					funcionario.setNome(txtFieldNome.getText());
 					funcionario.setCpf(txtFieldCpf.getText());
 					funcionario.setNascimento(txtFieldNascimento.getText());					
@@ -173,8 +165,9 @@ public class EdiFuncionarioFrame extends AbstractFrame {
 					funcionario.setRua(txtFieldRua.getText());
 					funcionario.setNumeroCasa(txtFieldNumeroCasa.getText());
 					funcionario.setTelefone(txtFieldTelefone.getText());
+					Integer valorEditar = Integer.parseInt(Objeto.getText());
 					try {
-						funcionarioBO.salvar(funcionario);
+						funcionarioBO.editar(funcionario, valorEditar);
 						home().msgInfo("Funcionário cadastrado com sucesso!");
 					} catch (DAOException e1) {
 						msgError(e1.getMessage());
@@ -198,5 +191,6 @@ public class EdiFuncionarioFrame extends AbstractFrame {
 		});
 		btnSalvar.setBounds(289, 232, 89, 23);
 		contentPane.add(btnSalvar);
+
 	}
 }

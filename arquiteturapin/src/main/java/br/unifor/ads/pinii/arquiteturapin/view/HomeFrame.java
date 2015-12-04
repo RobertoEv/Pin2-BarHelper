@@ -64,7 +64,7 @@ public class HomeFrame extends AbstractFrame {
 		contentPane.add(messages);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 561, 28);
+		menuBar.setBounds(0, 0, 534, 28);
 		contentPane.add(menuBar);
 		
 		JMenu mnFunc = new JMenu("Funcionario");
@@ -89,6 +89,10 @@ public class HomeFrame extends AbstractFrame {
 		mnFunc.add(mntmEditar);
 		
 		JMenuItem mntmRemover = new JMenuItem("Remover");
+		mntmRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		mnFunc.add(mntmRemover);
 		
 		JMenu mnSetor = new JMenu("Setor");
@@ -116,9 +120,9 @@ public class HomeFrame extends AbstractFrame {
 				login();
 			}
 		});
-//		btnNewButton.setIcon(new ImageIcon(HomeFrame.class.getResource("/br/unifor/ads/pinii/arquiteturapin/view/imagens/exit1.png")));
-//		btnNewButton.setBounds(533, 0, 28, 28);
-//		contentPane.add(btnNewButton);
+		btnNewButton.setIcon(new ImageIcon(HomeFrame.class.getResource("/br/unifor/ads/pinii/arquiteturapin/view/imagens/exit1.png")));
+		btnNewButton.setBounds(533, 0, 28, 28);
+		contentPane.add(btnNewButton);
 		
 	}
 }

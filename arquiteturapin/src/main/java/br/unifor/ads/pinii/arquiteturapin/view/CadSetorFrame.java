@@ -16,6 +16,7 @@ import br.unifor.ads.pinii.arquiteturapin.entity.Mesas;
 import br.unifor.ads.pinii.arquiteturapin.entity.Setores;
 import br.unifor.ads.pinii.arquiteturapin.exception.DAOException;
 import javax.swing.JTable;
+import javax.swing.JComboBox;
 
 public class CadSetorFrame extends AbstractFrame {
 
@@ -104,17 +105,25 @@ public class CadSetorFrame extends AbstractFrame {
 		textFieldNome.setColumns(10);
 		
 		JLabel lblNomeSetor = new JLabel("Nome Setor:");
-		lblNomeSetor.setBounds(150, 123, 76, 14);
+		lblNomeSetor.setBounds(113, 123, 76, 14);
 		contentPane.add(lblNomeSetor);
 		
 		JLabel lblQtdDeMesas = new JLabel("Qtd de Mesas:");
-		lblQtdDeMesas.setBounds(139, 148, 70, 14);
+		lblQtdDeMesas.setBounds(113, 148, 96, 14);
 		contentPane.add(lblQtdDeMesas);
 		
 		textFieldMesa = new JTextField();
 		textFieldMesa.setBounds(218, 145, 175, 20);
 		contentPane.add(textFieldMesa);
 		textFieldMesa.setColumns(10);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(217, 172, 176, 22);
+		contentPane.add(comboBox);
+		
+		JLabel lblFuncionario = new JLabel("Funcionario:");
+		lblFuncionario.setBounds(113, 175, 81, 16);
+		contentPane.add(lblFuncionario);
 		
 		
 		

@@ -19,12 +19,17 @@ public class FuncionarioBO {
 		this.funcionarioDAO.salvar(funcionario);
 	}
 	
-	public Funcionarios editar(Funcionarios funcionario) throws DAOException{
-		this.funcionarioDAO.editar(funcionario);
+	public Funcionarios editar(Funcionarios funcionario, Integer valorEditado) throws DAOException{
+		this.funcionarioDAO.editar(funcionario, valorEditado);
 		return funcionario;
 	}
 	
-	public void excluir(Funcionarios funcionario) throws DAOException{
-		this.funcionarioDAO.excluir(funcionario);
+	public void excluir(Integer valorDeletado) throws DAOException{
+		this.funcionarioDAO.excluir(valorDeletado);
+	}
+	
+	public Funcionarios exibir(Funcionarios funcionario, Integer selecionado) throws DAOException{
+		Funcionarios exibirFuncionario = this.funcionarioDAO.exibir(funcionario, selecionado);
+		return exibirFuncionario;
 	}
 }
