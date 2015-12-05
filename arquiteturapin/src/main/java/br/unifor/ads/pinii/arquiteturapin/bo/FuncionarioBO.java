@@ -24,8 +24,8 @@ public class FuncionarioBO {
 		return funcionario;
 	}
 	
-	public void excluir(Integer valorDeletado) throws DAOException{
-		this.funcionarioDAO.excluir(valorDeletado);
+	public void excluir(Funcionarios funcionario, Integer valorDeletado) throws DAOException{
+		this.funcionarioDAO.excluir(funcionario, valorDeletado);
 	}
 	
 	public Funcionarios exibir(Funcionarios funcionario, Integer selecionado) throws DAOException{

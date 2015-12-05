@@ -155,4 +155,20 @@ public class AbstractFrame extends JFrame {
 		}
 		return frame;
 	}
+	
+	/**
+	 * Tela de Excluir Funcionario
+	 */
+	public AbstractFrame excluirFuncionario() {
+		ExcluirFuncionarioFrame frame = new ExcluirFuncionarioFrame();
+		try {
+			UIManager.setLookAndFeel(
+					"com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+			frame.setLocationRelativeTo(null);
+			frame.setVisible(true);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return frame;
+	}
 }

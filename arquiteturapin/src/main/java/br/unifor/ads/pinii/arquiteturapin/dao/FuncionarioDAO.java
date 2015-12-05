@@ -13,12 +13,12 @@ import br.unifor.ads.pinii.arquiteturapin.entity.Usuarios;
 import br.unifor.ads.pinii.arquiteturapin.exception.DAOException;
 
 public class FuncionarioDAO {
-	
+
 	private EntityManager em;
-	
+
 	public FuncionarioDAO() {
 		this.em = new EntityManager() {
-			
+
 			@Override
 			public Object trataResultSet(ResultSet rs) throws SQLException {
 				Funcionarios funcionario = new Funcionarios();
@@ -35,28 +35,31 @@ public class FuncionarioDAO {
 			}
 		};
 	}
-	
+
 	public void salvar(Funcionarios funcionario) throws DAOException {
-		em.execute("insert into funcionarios (nome, cpf, nascimento, estado, cidade, rua, numeroCasa, telefone) "
-				+ "values (?, ?, ?, ?, ?, ?, ?, ?)", 
-				funcionario.getNome(), funcionario.getCpf(), funcionario.getNascimento(), funcionario.getEstado(), funcionario.getCidade(), funcionario.getRua(), 
-				funcionario.getNumeroCasa(), funcionario.getTelefone());
+		em.execute(
+				"insert into funcionarios (nome, cpf, nascimento, estado, cidade, rua, numeroCasa, telefone) "
+						+ "values (?, ?, ?, ?, ?, ?, ?, ?)",
+				funcionario.getNome(), funcionario.getCpf(), funcionario.getNascimento(), funcionario.getEstado(),
+				funcionario.getCidade(), funcionario.getRua(), funcionario.getNumeroCasa(), funcionario.getTelefone());
 	}
-	
-	public Funcionarios exibir(Funcionarios funcionario, Integer selecionado) throws DAOException{
+
+	public Funcionarios exibir(Funcionarios funcionario, Integer selecionado) throws DAOException {
 		Funcionarios exibirFuncionario = null;
 		exibirFuncionario = (Funcionarios) em.getSingleResult("select * from usuarios where id = ?", selecionado);
 		return exibirFuncionario;
 	}
-	
-	public void editar(Funcionarios funcionario, Integer valorEditado) throws DAOException{
-		em.execute("update funcionarios set nome = ?, cpf = ?, nascimento = ?, estado = ?, cidade = ?,"
-				+ " rua = ?, numeroCasa = ?, telefone = ? where id = ?",funcionario.getNome(), 
-				funcionario.getCpf(), funcionario.getNascimento(), funcionario.getEstado(),	funcionario.getCidade(), 
-				funcionario.getRua(),funcionario.getNumeroCasa(), funcionario.getTelefone(), valorEditado);
+
+	public void editar(Funcionarios funcionario, Integer valorEditado) throws DAOException {
+		em.execute(
+				"update funcionarios set nome = ?, cpf = ?, nascimento = ?, estado = ?, cidade = ?,"
+						+ " rua = ?, numeroCasa = ?, telefone = ? where id = ?",
+				funcionario.getNome(), funcionario.getCpf(), funcionario.getNascimento(), funcionario.getEstado(),
+				funcionario.getCidade(), funcionario.getRua(), funcionario.getNumeroCasa(), funcionario.getTelefone(),
+				valorEditado);
 	}
-	
-	public void excluir(Integer valorDeletado) throws DAOException{
-		em.execute("delete from fucionarios where id = ?", valorDeletado);
+
+	public void excluir(Funcionarios funcionario, Integer valorDeletado) throws DAOException {
+		em.execute("DELETE FROM funcionario WHERE = ?", valorDeletado);
 	}
 }

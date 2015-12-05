@@ -18,5 +18,4 @@ public class SetorBO {
 	public void salvar(Setores setor) throws DAOException{
 		this.setorDAO.salvar(setor);
 	}
-
 }

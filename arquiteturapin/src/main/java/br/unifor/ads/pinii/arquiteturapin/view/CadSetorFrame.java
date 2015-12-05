@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -11,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import br.unifor.ads.pinii.arquiteturapin.bo.MesaBO;
 import br.unifor.ads.pinii.arquiteturapin.bo.SetorBO;
 import br.unifor.ads.pinii.arquiteturapin.entity.Mesas;
 import br.unifor.ads.pinii.arquiteturapin.entity.Setores;
@@ -22,6 +24,7 @@ public class CadSetorFrame extends AbstractFrame {
 
 	private JPanel contentPane;
 	private SetorBO setorBO;
+	private MesaBO mesaBO;
 	private JTextField textFieldNome;
 	private JTextField textFieldMesa;
 
@@ -47,6 +50,7 @@ public class CadSetorFrame extends AbstractFrame {
 	public CadSetorFrame() {
 		
 		this.setorBO = new SetorBO();
+		this.mesaBO = new MesaBO();
 		
 		setTitle("PIN 2 BarHelper - Cadastro de Setores");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginFrame.class.getResource("imagens/logo_unifor.png")));
@@ -74,10 +78,7 @@ public class CadSetorFrame extends AbstractFrame {
 		public void actionPerformed(ActionEvent e) {
 				if (validaCamposObrigatorios()) {
 					Setores setor = new Setores();
-					Mesas mesa = new Mesas();
 					setor.setNome(textFieldNome.getText());
-					setor.setNome(textFieldNome.getText());
-					
 					try {
 						setorBO.salvar(setor);
 						home().msgInfo("Setor cadastrado com sucesso!");
@@ -116,10 +117,6 @@ public class CadSetorFrame extends AbstractFrame {
 		textFieldMesa.setBounds(218, 145, 175, 20);
 		contentPane.add(textFieldMesa);
 		textFieldMesa.setColumns(10);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(217, 172, 176, 22);
-		contentPane.add(comboBox);
 		
 		JLabel lblFuncionario = new JLabel("Funcionario:");
 		lblFuncionario.setBounds(113, 175, 81, 16);

@@ -8,7 +8,7 @@ import br.unifor.ads.pinii.arquiteturapin.entity.Mesas;
 import br.unifor.ads.pinii.arquiteturapin.entity.Setores;
 import br.unifor.ads.pinii.arquiteturapin.exception.DAOException;
 
-public class MesaBO {
+public class MesaBO  {
 	
 	private Logger logger = Logger.getLogger(UsuarioBO.class);
 	private MesaDAO mesaDAO;
@@ -17,10 +17,8 @@ public class MesaBO {
 		this.mesaDAO = new MesaDAO();
 	}
 	
-	public void salvar(Mesas mesa, Integer qtdMesas) throws DAOException{
-		for (Integer i = 1; i <= qtdMesas; i++){
-			this.mesaDAO.salvar(mesa, i);
-		}	
+	public void salvar(Mesas mesa) throws DAOException{
+			this.mesaDAO.salvar(mesa);
 	}
 
 }

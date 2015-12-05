@@ -90,7 +90,9 @@ public class HomeFrame extends AbstractFrame {
 		
 		JMenuItem mntmRemover = new JMenuItem("Remover");
 		mntmRemover.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				excluirFuncionario();
 			}
 		});
 		mnFunc.add(mntmRemover);
